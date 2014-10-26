@@ -4,6 +4,7 @@ var app = express();
 
 // app.engine("html", ejs.renderFile);
 app.set("view engine", "ejs");
+app.use(express.static(_dirname + "/app"));
 
 app.get('/', function (req, res) {
   res.render("index.html", ());
