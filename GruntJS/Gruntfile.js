@@ -10,12 +10,21 @@ module.exports = function(grunt) {
 
    grunt.config("cssmin", {
     combine: {
-      'app/stylesheets/app.min.css' : [
-        'app/components/bootstrap/dist/css/bootstrap.min.css',
-          'app/stylesheets/*.css'
-            ]
+      files: {
 
+      'app/stylesheets/app.min.css' : [
+        'app/components/bootstrap/**/*bootstrap/dist/css/bootstrap.min.css', // any subfolder with bootstrap in their name and bootstrap.css
+          'app/stylesheets/*.css' // * means grabs anything with .css
+        ]
+      
+      }
     }
    });
+
+   grunt.registerTask("clean", "removes built files", function(){
+      grunt.file.delete("app/stylesheets/app.min.css");
+   });
+
+   grunt.registerTask("build", ["clean", "cssmin"]);
 
 };
