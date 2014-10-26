@@ -1,4 +1,4 @@
-RequireJS
+Weekend Advanced JS
 =========
 
-A practice to requireJS
+A practice to RequireJS, GruntJS, ExpressJS
